@@ -36,8 +36,8 @@ if (argOne === "concert-this") {
 function concert(artist) {
 
 
-    //slet artist = userInput;
-    //console.log(artist);
+
+    console.log(artist);
     let queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
     console.log(queryURL);

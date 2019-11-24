@@ -33,17 +33,22 @@ if (argOne === "concert-this") {
 
 
 // 1.) Bands In Town: node liri.js concert-this <artist/band name here>
-function concert(artist) {
+function concert() {
 
+    //let artist = "";
 
+    let artist = process.argv.slice(3).join(" ")
 
     console.log(artist);
+
     let queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
     console.log(queryURL);
 
     axios.get(queryURL).then(
             function (response) {
+
+
                 // let results = response.data
 
                 // for (let i = 0; i < results.length; i++) {

@@ -35,6 +35,7 @@ if (argOne === "concert-this") {
 // 1.) Bands In Town: node liri.js concert-this <artist/band name here>
 function concert() {
 
+    let divider = "\n------------------------------------------------------------\n\n";
     //let artist = "";
 
     let artist = process.argv.slice(3).join(" ")
@@ -48,21 +49,26 @@ function concert() {
     axios.get(queryURL).then(
             function (response) {
 
-
-                // let results = response.data
-
-                // for (let i = 0; i < results.length; i++) {
-                // console.log("Venue Name: " + results.venue.name);
-                // console.log("Venue Location: " + results.venue.city);
-                // let eventDate = moment(results.datetime).format('MM/DD/YYYY');
-                // console.log("Date of the Event:", eventDate);
-
+                console.log("Artist(s): ", response.data[0].artist.name);
                 console.log("Venue Name: ", response.data[0].venue.name);
                 console.log("Venue Location: ", response.data[0].venue.city);
                 let eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
                 console.log("Date of the Event:", eventDate);
-                // console.log(moment(response.data[0].datetime).format("MM/DD/YYYY"));
-                // }
+
+
+                fs.appendFile("log.txt", "\nArtist(s): " + response.data[0].artist.name + "\nVenue Name: " + response.data[0].venue.name + "\nVenue Location: " + response.data[0].venue.city + "\nDate of the Event:" + eventDate + divider, function (err) {
+
+                    //If an error was experienced we will log it.
+                    if (err) {
+                        console.log(err);
+                    }
+
+                    //If no error is experienced, we'll log the phrase "Content Added" to our node console.
+                    else {
+                        console.log("Content Added!");
+                    }
+
+                });
 
             })
 
@@ -73,23 +79,6 @@ function concert() {
 
 
 
-// function music() {
-//     console.log(argOne)
-
-//     const spotify = new Spotify(keys.spotify);
-
-//     spotify.search({
-//         type: 'track',
-//         query: argTwo
-//     }, function (err, data) {
-//         if (err) {
-//             return console.log('Error occurred: ' + err);
-//         }
-
-//         console.log(data);
-//         console.log(data.tracks.items);
-//     });
-// };
 
 // 2.) Spotify: "spotify-this-song"
 function music() {
@@ -165,25 +154,12 @@ function music() {
 function movie() {
 
 
-    let movieName = "";
+    //let movieName = "";
 
-    // Loop through all the words in the node argument
-    // And do a little for-loop magic to handle the inclusion of "+"s
-    for (let i = 2; i < argOne.length; i++) {
-
-        if (i > 2 && i < argOne.length) {
-            movieName = movieName + "+" + argOne[i];
-        } else {
-            movieName += argOne[i];
-
-        }
-    }
+    let movieName = process.argv.slice(3).join(" ")
 
 
     let queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=" + omdbKey;
-    //let queryURL = "http://www.omdbapi.com/?i=" + movieName + "&apikey=" + omdbKey;
-    //let queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-    //let queryURL = "http://www.omdbapi.com/?i=tt3896198&apikey=717ab1cf=" + movieName
 
 
     console.log(queryURL);
@@ -191,7 +167,7 @@ function movie() {
 
     axios.get(queryURL).then(
             function (response) {
-                //console.log("Release Year: " + response.data.Year);
+
                 //* Title of the movie.
                 console.log("Title: " + response.data.Title);
                 //* Year the movie came out.

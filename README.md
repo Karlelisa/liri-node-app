@@ -59,6 +59,12 @@ You'll use Axios to grab data from the OMDB API and the Bands In Town API
 ![spotify-this-song screenshot](/images/spotify-this-song.png)
 
 
+### My movie-this terminal screenshot:
+
+![movie-this screenshot](/images/movie-this.png)
+![movie-this screenshot](/images/movie-this2.png)
+
+
 ### My do-what-it-says terminal screenshot:
 
 ![do-what-it-says screenshot](/images/do-what-it-says.png)

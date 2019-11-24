@@ -26,50 +26,45 @@ if (argOne === "concert-this") {
 } else if (argOne === "movie-this") {
     console.log(argOne)
     movie();
-
+} else if (argOne === "do-what-it-says") {
+    console.log(argOne)
+    doWhatItSays();
 };
 
-// Bands In Town - concert-this - node liri.js concert-this <artist/band name here>
-function concert(artist) {
-    let divider = "\n------------------------------------------------------------\n\n";
 
-    //let bandsintown = require('bandsintown')(codingbootcamp);
+// 1.) Bands In Town: node liri.js concert-this <artist/band name here>
+function concert(artist) {
+
 
     //slet artist = userInput;
     //console.log(artist);
     let queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
     console.log(queryURL);
+
     axios.get(queryURL).then(
-        function (response) {
+            function (response) {
+                // let results = response.data
 
+                // for (let i = 0; i < results.length; i++) {
+                // console.log("Venue Name: " + results.venue.name);
+                // console.log("Venue Location: " + results.venue.city);
+                // let eventDate = moment(results.datetime).format('MM/DD/YYYY');
+                // console.log("Date of the Event:", eventDate);
 
-            // let results = response.data
+                console.log("Venue Name: ", response.data[0].venue.name);
+                console.log("Venue Location: ", response.data[0].venue.city);
+                let eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
+                console.log("Date of the Event:", eventDate);
+                // console.log(moment(response.data[0].datetime).format("MM/DD/YYYY"));
+                // }
 
-            // for (let i = 0; i < results.length; i++) {
-            // console.log("Venue Name: " + results.venue.name);
-            // console.log("Venue Location: " + results.venue.city);
-            // let eventDate = moment(results.datetime).format('MM/DD/YYYY');
-            // console.log("Date of the Event:", eventDate);
-
-            console.log("Venue Name: ", response.data[0].venue.name);
-            console.log("Venue Location: ", response.data[0].venue.city);
-            let eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
-            console.log("Date of the Event:", eventDate);
-            console.log(moment(response.data[0].datetime).format("MM/DD/YYYY"));
-        }
+            })
 
         .catch(function (error) {
-                console.log(error);
-
-
-            }
-
-
+            console.log(error);
         });
-
-};
-
+}
 
 
 
@@ -91,7 +86,7 @@ function concert(artist) {
 //     });
 // };
 
-// Spotify - "spotify-this-song"
+// 2.) Spotify: "spotify-this-song"
 function music() {
     console.log(argOne)
 
@@ -138,26 +133,10 @@ function music() {
             songName = "I Saw the Sign";
         }
 
+
     });
 
 };
-
-/* 
-let text = process.argv[2]
-fs.appendFile("log.txt", text, function (err) { */
-
-// If an error was experienced we will log it.
-/*   if (err) {
-      console.log(err);
-  } */
-
-// If no error is experienced, we'll log the phrase "Content Added" to our node console.
-/*    else {
-        console.log("Content Added!");
-    }
-
-});
- */
 
 
 // fs.appendFile("log.txt", "Artist(s): " + songData.artists[0].name + "\nSong: " + songData.name + "\nPreview URL: " + songData.preview_url + "\nAlbum: " + songData.album.name, function (err) {
@@ -176,7 +155,7 @@ fs.appendFile("log.txt", text, function (err) { */
 // });
 
 
-//OMDB - Movies - node liri.js movie-this '<movie name here>'
+// 3.) OMDB - Movies - node liri.js movie-this '<movie name here>'
 // Cited: https://harvard.bootcampcontent.com/Harvard-Coding-Boot-Camp/hu-cam-fsf-pt-09-2019-u-c/blob/master/Week_10/01-Activities/18-OMDB_Axios_Students/Solved/levelOneOmdbInteractive.js
 function movie() {
 
@@ -200,7 +179,6 @@ function movie() {
     //let queryURL = "http://www.omdbapi.com/?i=" + movieName + "&apikey=" + omdbKey;
     //let queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     //let queryURL = "http://www.omdbapi.com/?i=tt3896198&apikey=717ab1cf=" + movieName
-
 
 
     console.log(queryURL);
@@ -256,5 +234,19 @@ function movie() {
             }
         });
 
+};
 
+
+// 4.) node liri.js do-what-it-says
+function doWhatItSays() {
+
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        let output = data.split(",");
+        for (let i = 0; i < output.length; i++) {
+            console.log(output[i]);
+        }
+    });
 };

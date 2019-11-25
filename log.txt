@@ -195,3 +195,38 @@ Venue Name: TD GardenVenue Location: Boston
 Date of the Event:11/24/2019
 ------------------------------------------------------------
 
+
+Artist(s): Michael Jackson
+Song: P.Y.T. (Pretty Young Thing)
+Preview URL: https://p.scdn.co/mp3-preview/575230ca230ab7a79f1b2980e303d7f1612073f3?cid=e4fe916f12a74eda96ff42299d4a1104
+Album: Thriller 25 Super Deluxe Edition
+------------------------------------------------------------
+
+
+Artist(s): Backstreet Boys
+Song: I Want It That Way
+Preview URL: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=e4fe916f12a74eda96ff42299d4a1104
+Album: The Hits--Chapter One
+------------------------------------------------------------
+
+
+Artist(s): Frank Sinatra
+Song: Jingle Bells
+Preview URL: null
+Album: Ultimate Christmas
+------------------------------------------------------------
+
+
+Artist(s): Billie Eilish
+Venue Name: American Airlines Arena
+Venue Location: Miami
+Date of the Event:03/09/2020
+------------------------------------------------------------
+
+
+Artist(s): Alicia Keys
+Song: Empire State of Mind (Part II) Broken Down
+Preview URL: https://p.scdn.co/mp3-preview/6ea63bc18c68a1f518d84b763106d315c6bfef84?cid=e4fe916f12a74eda96ff42299d4a1104
+Album: The Element Of Freedom
+------------------------------------------------------------
+

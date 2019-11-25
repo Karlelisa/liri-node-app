@@ -4,7 +4,6 @@ const keys = require("./keys.js");
 const axios = require('axios');
 const moment = require('moment');
 let omdbKey = keys.omdb.api_key;
-//let omdb = require('omdb');
 let fs = require('fs');
 
 
@@ -12,7 +11,6 @@ console.log(process.argv)
 
 let argOne = process.argv[2];
 let argTwo = process.argv[3];
-//let argThree = process.argv[4];
 
 console.log(argOne);
 console.log(argTwo);
@@ -123,8 +121,8 @@ function music() {
 
                 });
             }
-        } else if (songName === "") {
-            songName = "I Saw the Sign";
+        } else if (argTwo === "") {
+            argTwo = "I Saw the Sign";
         }
 
 
@@ -132,21 +130,6 @@ function music() {
 
 };
 
-
-// fs.appendFile("log.txt", "Artist(s): " + songData.artists[0].name + "\nSong: " + songData.name + "\nPreview URL: " + songData.preview_url + "\nAlbum: " + songData.album.name, function (err) {
-
-
-// If an error was experienced we will log it.
-// if (err) {
-//     console.log(err);
-// }
-
-// If no error is experienced, we'll log the phrase "Content Added" to our node console.
-//     else {
-//         console.log("Content Added!");
-//     }
-
-// });
 
 
 // 3.) OMDB - Movies - node liri.js movie-this '<movie name here>'
@@ -207,14 +190,14 @@ function movie() {
             console.log(error.config);
 
 
-            if (movieName === "Mr. Nobody") {
+            if (movieName === "") {
+                console.log("Mr. Nobody");
                 console.log("-----------------------");
                 console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
                 console.log("It's on Netflix!");
 
             }
         });
-
 };
 
 

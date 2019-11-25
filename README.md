@@ -51,7 +51,7 @@ You'll use Axios to grab data from the OMDB API and the Bands In Town API
 
 ### My concert-this terminal screenshot:
 
-![concert-this screenshot](/images/conert-this.png)
+![concert-this screenshot](/images/concert-this.png)
 
 
 ### My spotify-this-song terminal screenshot:
